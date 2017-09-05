@@ -2,15 +2,17 @@ package Oving3_sortering;
 
 import java.util.Arrays;
 
-public class Algoritme {
-    static int[] numbers;
-    static int number;
+class Algoritme {
+    private static int[] numbers;
+    private static int number,DV,ST;
 
-    public static int[] sort(int[] values, int deleverdi){
+    static int[] sort(int[] values, int delverdi, int sorttype){
         if(values.length < 1 || values == null) return null;
 
         numbers = Arrays.copyOf(values,values.length);
         number = values.length;
+        DV = delverdi;
+        ST = sorttype;
         quicksort(0, number - 1);
 
         return numbers;
@@ -18,6 +20,13 @@ public class Algoritme {
 
     private static void quicksort(int low, int high) {
         int i = low, j = high;
+
+        //Uses shellsort if the array.length is lower than the preset
+        if(high - low < DV && ST == 2){
+            shellsort(low, high);
+            return;
+        }
+
         // Get the pivot element from the middle of the list
         int pivot = numbers[median3sort(low,high)];
 
@@ -51,16 +60,16 @@ public class Algoritme {
         if (i < high)
             quicksort(i, high);
     }
-    private static void shellsort(int[]t, int fra, int til){
-        int s = (til - fra)/2;
+    private static void shellsort(int low, int high){
+        int s = (high - low)/2;
         while(s > 0){
-            for (int i = s+fra; i < til+1; ++i) {
-                int j = i,flytt = t[i];
-                while(j >= fra+s && flytt < t[j-s]){
-                    t[j] = t[j-s];
+            for (int i = s+low; i < high+1; ++i) {
+                int j = i,flytt = numbers[i];
+                while(j >= low+s && flytt < numbers[j-s]){
+                    numbers[j] = numbers[j-s];
                     j -= s;
                 }
-                t[j] = flytt;
+                numbers[j] = flytt;
             }
             s = (s ==2) ? 1 : (int)(s/2.2);
         }
