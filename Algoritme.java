@@ -35,6 +35,20 @@ public class Algoritme {
         if (i < high)
             quicksort(i, high);
     }
+    private static void shellsort(int[]t){
+        int s = t.length/2;
+        while(s > 0){
+            for (int i = 0; i < t.length; i++) {
+                int j = i,flytt = t[i];
+                while(j >= s && flytt < t[j-s]){
+                    t[j] = t[j-s];
+                    j -= s;
+                }
+                t[j] = flytt;
+            }
+            s = (s ==2) ? 1 : (int)(s/2.2);
+        }
+    }
 
     private void exchange(int i, int j){
         int help = numbers[i];
