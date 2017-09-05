@@ -1,5 +1,7 @@
 package Oving3_sortering;
 
+import java.util.Arrays;
+
 public class Algoritme {
     static int[] numbers;
     static int number;
@@ -7,7 +9,7 @@ public class Algoritme {
     public static int[] sort(int[] values, int deleverdi){
         if(values.length < 1 || values == null) return null;
 
-        numbers = values;
+        numbers = Arrays.copyOf(values,values.length);
         number = values.length;
         quicksort(0, number - 1);
 
@@ -17,7 +19,7 @@ public class Algoritme {
     private static void quicksort(int low, int high) {
         int i = low, j = high;
         // Get the pivot element from the middle of the list
-        int pivot = numbers[low + (high-low)/2];
+        int pivot = numbers[median3sort(low,high)];
 
         // Divide into two lists
         while (i <= j) {
@@ -62,6 +64,19 @@ public class Algoritme {
             }
             s = (s ==2) ? 1 : (int)(s/2.2);
         }
+    }
+
+    private static int median3sort(int low, int hi){
+        int m = (low + hi)/2;
+        if(numbers[low]>numbers[m]){
+            exchange(low,m);
+        }if(numbers[m]>numbers[hi]){
+            exchange(m,hi);
+            if(numbers[low]>numbers[m]){
+                exchange(low,m);
+            }
+        }
+        return m;
     }
 
     private static void exchange(int i, int j){
