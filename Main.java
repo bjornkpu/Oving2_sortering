@@ -6,7 +6,7 @@ public class Main {
     private final static int MAX = 20;
 
     public static void main(String[] args) {
-        Data d = new Data();
+        Algoritme d = new Algoritme();
 
         Tidtaker t = new Tidtaker();
 
