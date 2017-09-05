@@ -1,4 +1,4 @@
-package Oving2_sortering;
+package Oving3_sortering;
 
 public class Data {
     int[] numbers;

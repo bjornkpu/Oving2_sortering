@@ -1,7 +1,4 @@
-package Oving2_sortering;
-
-import Oving2_sortering.Data;
-import Oving2_sortering.Tidtaker;
+package Oving3_sortering;
 
 public class Main {
 
