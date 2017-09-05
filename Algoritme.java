@@ -1,20 +1,20 @@
 package Oving3_sortering;
 
 public class Algoritme {
-    int[] numbers;
-    int number;
+    static int[] numbers;
+    static int number;
 
-    public int[] sort(int[] values){
+    public static int[] sort(int[] values){
         if(values.length < 1 || values == null) return null;
 
-        this.numbers = values;
+        numbers = values;
         number = values.length;
         quicksort(0, number - 1);
 
         return numbers;
     }
 
-    private void quicksort(int low, int high){
+    private static void quicksort(int low, int high){
         int i = low, j = high;
         int pivot = numbers[low + (high-low)/2];
         while (i <= j) {
@@ -36,7 +36,7 @@ public class Algoritme {
             quicksort(i, high);
     }
 
-    private void exchange(int i, int j){
+    private static void exchange(int i, int j){
         int help = numbers[i];
         numbers[i] = numbers[j];
         numbers[j] = help;
