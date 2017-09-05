@@ -8,8 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Data d = new Data();
 
-        Tidtaker t = new Tidtaker();
-
         int[] numbers = new int[ANTALL];
 
         java.util.Random r = new java.util.Random();
