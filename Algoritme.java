@@ -51,12 +51,12 @@ public class Algoritme {
         if (i < high)
             quicksort(i, high);
     }
-    private static void shellsort(int[]t){
-        int s = t.length/2;
+    private static void shellsort(int[]t, int fra, int til){
+        int s = (til - fra)/2;
         while(s > 0){
-            for (int i = 0; i < t.length; i++) {
+            for (int i = s+fra; i < til+1; ++i) {
                 int j = i,flytt = t[i];
-                while(j >= s && flytt < t[j-s]){
+                while(j >= fra+s && flytt < t[j-s]){
                     t[j] = t[j-s];
                     j -= s;
                 }
