@@ -1,0 +1,16 @@
+Kapittel 3.9.1 i læreboka forteller at selv om quicksort er rask på store datamengder, så er
+den ikke raskest på små. Ettersom quicksort kaller seg selv rekursivt, vil en stor sortering
+nødvendigvis føre til mange ineffektive små sorteringer også.
+
+1. Lag en variant av quicksort hvor rekursjonen brytes når deltabellen kommer under
+en «passende» størrelse. Når dette skjer skal quicksort-metoden benytte en annen
+sortering som hjelpealgoritme i stedet. Jeg foreslår Shellsort eller innsettingssort,
+men dere må gjerne forsøke andre muligheter i stedet. Det blir mer spennnende
+hvis ikke alle gruppene bruker samme hjelpealgoritme.
+
+2. Finn ut nøyaktig hvor stor den «passende» størrelsen er ved å kjøre tester med
+tidtaking på store datamengder. Finn altså hvilken størrelse som gir raskest sortering
+for en gitt stor datamengde. Hvis svaret på dette blir 1 eller ∞ har dere sannsynligvis
+gjort feil et sted. Ulike implementasjoner har ulik hastighet, så det kan godt hende
+at en gruppe får 30 mens en annen gruppe får 250 som passende størrelse for
+deltabeller.
