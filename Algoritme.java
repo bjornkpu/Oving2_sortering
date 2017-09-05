@@ -49,7 +49,7 @@ public class Algoritme {
         if (i < high)
             quicksort(i, high);
     }
-    private static void shellsort(int[]t, int til, int fra){
+    private static void shellsort(int[]t, int fra, int til){
         int s = (til - fra)/2;
         while(s > 0){
             for (int i = s+fra; i < til+1; ++i) {
